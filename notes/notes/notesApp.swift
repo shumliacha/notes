@@ -9,12 +9,15 @@ import SwiftUI
 
 @main
 struct notesApp: App {
-    let persistenceController = PersistenceController.shared //question
-
+    
+    @StateObject private var persistenceController = PersistenceController(name: "NoteModel")
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext) //question
+            ListView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            //@StateObject and .environment provide all files with container => model
+            //viewContext for performance increase - working with cache memory
         }
     }
 }
