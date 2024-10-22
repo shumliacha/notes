@@ -33,6 +33,7 @@ struct ListView: View {
                         newNote.lastEdited = Date()
                         
                         try? moc.save()
+                        name = ""
                     }
                     
                 }
@@ -49,6 +50,12 @@ struct ListView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 .padding()
             }
+           // .sheet(item: <#T##Binding<Identifiable?>#>, content: <#T##(Identifiable) -> View#>)
+            
+        // Add new note via a sheet
+        // Button "add" -> sheet opens with 2 fields -> add note
+        // or with nav stack
+        // add note -> new view with blank fields -> add note
             
         }
     }
